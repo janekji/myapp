@@ -1,0 +1,16 @@
+<% if user_added_to_library?(current_user, book) %>
+<% if controller.controller_name == "library" %>
+  <%= book.title %>
+  <%= link_to "Usuń z biblioteki", add_book_path(book, type: "remove"), method: :put%>
+      <%= link_to "Pobierz", '#'%><br>
+    <% end %>
+<% else%>
+  Autor:
+  <%= book.author%><br>
+  Tytuł:
+  <%= book.title%><br>
+  Opis:
+  <%= book.description%><br>
+  <%= link_to "Dodaj do bilbioteki", add_book_path(book, type: "add"), method: :put%><br>
+  <br>
+<% end %>

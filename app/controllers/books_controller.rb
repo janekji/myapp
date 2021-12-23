@@ -51,7 +51,7 @@ class BooksController < ApplicationController
 
     if type == "add"
       current_user.library_additions << @book
-      redirect_to library_index_path, notice: "#{@book.title} została dodana z biblioteki"
+      redirect_to library_index_path, notice: "#{@book.title} została dodana do biblioteki"
     elsif type == "remove"
       current_user.library_additions.delete(@book)
       redirect_to root_path, notice: "#{@book.title} została usunięta z biblioteki"

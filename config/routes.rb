@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :books
-  root 'pages#home'
+  root 'books#index'
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
 

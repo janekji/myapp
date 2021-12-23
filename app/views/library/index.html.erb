@@ -1,0 +1,6 @@
+<h1> Twoja biblioteka </h1>
+<% if @library_books.exists? %>
+  <%= render @library_books, book: @book%>
+<% else %>
+<h3>Nie masz jeszcze żadnych książek <%= link_to "dodaj jakieś", root_path %> <h3>
+<% end %>

@@ -5,4 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+AdminUser.destroy_all
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+Book.destroy_all
+
+Book.create!([{
+  user_id: "1",
+  title: "Physics",
+  author: "Pete Docter",
+  description: "A.",
+},
+{
+  user_id: "1",
+  title: "Biology",
+  author: "Pete Docter",
+  description: "B.",
+},
+{
+  user_id: "1",
+  title: "English",
+  author: "Pete Doct",
+  description: "C.",
+}])

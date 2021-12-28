@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy, :library]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   
   def index
     @books = Book.all
@@ -11,6 +11,8 @@ class BooksController < ApplicationController
   end
 
   def new
+    user = current_user
+    redirect_to root_path unless user.admin?
     @book = current_user.books.build
   end
 

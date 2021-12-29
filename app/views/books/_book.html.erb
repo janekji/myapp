@@ -5,7 +5,6 @@
       <%= link_to "Pobierz", '#'%><br>
     <% end %>
 <% else%>
-<% if book.aasm_state == "complete" %>
   Autor:
   <%= book.author%><br>
   Tytuł:
@@ -15,10 +14,9 @@
   <%= link_to "Dodaj do biblioteki", add_book_path(book, type: "add"), method: :put%><br>
   <% if current_user.admin? %>
   <p>
-    <%= link_to "Edytuj książkę", edit_book_path(book) %>
+    <%= link_to "Edytuj lub zatwierdź książkę", edit_book_path(book) %>
     <%= link_to "Usuń książkę", book_path(book), method: :delete %>
   </p>
   <% end %>
   <br>
-<% end %>
 <% end %>

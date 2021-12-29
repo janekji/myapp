@@ -25,8 +25,12 @@
     <%= form.label :author %>
     <%= form.text_field :author %>
   </div>
-
-
+  <% if current_user.admin?%>
+  <div class="field">
+    <%= form.select :aasm_state, [["Zatwierdź", "complete"], ["Odmów", "no_status"]] %>
+  </div>
+  <% end %>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

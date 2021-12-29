@@ -11,8 +11,6 @@ class BooksController < ApplicationController
   end
 
   def new
-    user = current_user
-    redirect_to root_path unless user.admin?
     @book = current_user.books.build
   end
 
@@ -23,10 +21,19 @@ class BooksController < ApplicationController
     @book = current_user.books.build(book_params)
 
     respond_to do |f|
-      if @book.save
-        f.html {redirect_to @book, notice: "Książka zostałą pomślnie dodana"}
+      if current_user.admin?
+        @book.aasm_state = "complete"
+        if @book.save
+          f.html {redirect_to @book, notice: "Książka zostałą pomślnie dodana"}
+        else 
+          f.html { render :new }
+        end
       else
-        f.html { render :new }
+        if @book.save
+          f.html {redirect_to @book, notice: "Książka czeka na zatwierdzenie"}
+        else
+          f.html { render :new }
+        end
       end
     end
   end

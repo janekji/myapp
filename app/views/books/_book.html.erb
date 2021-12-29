@@ -5,6 +5,7 @@
       <%= link_to "Pobierz", '#'%><br>
     <% end %>
 <% else%>
+<% if book.aasm_state == "complete" %>
   Autor:
   <%= book.author%><br>
   Tytuł:
@@ -19,4 +20,5 @@
   </p>
   <% end %>
   <br>
+<% end %>
 <% end %>

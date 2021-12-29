@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @books = Book.all
+    @books = Book.where("aasm_state = 'complete'")
   end
 
   def show
@@ -55,6 +55,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def user_books
+    @books = Book.where("aasm_state = 'no_status'")
+  end
+
   def library
     type = params[:type]
 
@@ -76,7 +80,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :description, :author, :user_id)
+      params.require(:book).permit(:title, :description, :author, :user_id, :aasm_state)
     end
 
 end

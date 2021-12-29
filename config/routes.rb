@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'books/user_books', to: 'books#user_books'
   resources :books do
     member do
       put "add", to: "books#library"

@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.2.0)
+      concurrent-ruby (~> 1.0)
     actioncable (6.0.4.4)
       actionpack (= 6.0.4.4)
       nio4r (~> 2.0)
@@ -67,6 +69,9 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    after_commit_everywhere (1.1.0)
+      activerecord (>= 4.2)
+      activesupport
     arbre (1.4.0)
       activesupport (>= 3.0.0, < 6.2)
       ruby2_keywords (>= 0.0.2, < 1.0)
@@ -305,7 +310,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aasm
   activeadmin
+  after_commit_everywhere (~> 1.0)
   bcrypt
   bootsnap (>= 1.4.2)
   cancancan

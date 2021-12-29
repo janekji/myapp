@@ -29,6 +29,9 @@ gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "rename"
 
+gem 'aasm'
+gem 'after_commit_everywhere', '~> 1.0'
+
 gem 'activeadmin'
 
 # Plus integrations with:

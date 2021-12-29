@@ -11,6 +11,12 @@
   <%= book.title%><br>
   Opis:
   <%= book.description%><br>
-  <%= link_to "Dodaj do bilbioteki", add_book_path(book, type: "add"), method: :put%><br>
+  <%= link_to "Dodaj do biblioteki", add_book_path(book, type: "add"), method: :put%><br>
+  <% if current_user.admin? %>
+  <p>
+    <%= link_to "Edytuj książkę", edit_book_path(book) %>
+    <%= link_to "Usuń książkę", book_path(book), method: :delete %>
+  </p>
+  <% end %>
   <br>
 <% end %>

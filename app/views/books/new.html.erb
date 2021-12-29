@@ -1,5 +1,7 @@
-<h1>New Book</h1>
-
+<h1>Dodaj książkę</h1>
+<% if !current_user.admin?%>
+  <h3>Ksiązka zostanie dodana po zatwierdzeniu przez administratora</h3>
+<% end %>
 <%= render 'form', book: @book %>
 
 <%= link_to 'Back', books_path %>

@@ -16,6 +16,8 @@
     <%= link_to "Stronga Główna", root_path%>
     <% if admin? %>
       <%= link_to "Nowa książka", new_book_path %>
+    <% else %>
+      <%= link_to "Dodaj swoją książkę", new_book_path %>
     <% end %>
 
     <% if user_signed_in? %>

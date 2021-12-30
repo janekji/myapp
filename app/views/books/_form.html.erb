@@ -27,7 +27,7 @@
   </div>
   <% if current_user.admin?%>
   <div class="field">
-    <%= form.select :aasm_state, [["Zatwierdź", "complete"], ["Odmów", "no_status"]] %>
+    <%= form.select :aasm_state, [["Zatwierdź", "complete"], ["Do sprawdzenia", "no_status"]] %>
   </div>
   <% end %>
   
